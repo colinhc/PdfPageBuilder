@@ -21,16 +21,15 @@
   }
   closedir($pdf_dir);
   foreach ($file_array as $value) {
-    $file = array_pop($file_array);
-    $path_parts = pathinfo($file);
-    if ($path_parts ["extension"] != "jpg") {
+    $matched = preg_match($pattern, array_pop($file_array), $matches);
+    if ($matched) {
 ?>
 <item> 
-<title><?= $file ?></title> 
-<link><?= $domain."/pdf/".$file ?></link> 
-<description><?= $file ?></description> 
-<pubDate><?= date("Y-m-d G:i:s", filemtime(join("/", array($dirname, $file)))) ?></pubDate> 
-<image><?= $domain."/pdf/".$file.".jpg" ?></image>
+<title><?= $matches[1] ?></title> 
+<link><?= $domain."/pdf/".$matches[1] ?></link> 
+<description><?= $matches[1] ?></description> 
+<pubDate><?= date("Y-m-d G:i:s", filemtime(join("/", array($dirname, $matches[1])))) ?></pubDate> 
+<image><?= $domain."/pdf/".$matches[1].".jpg" ?></image>
 </item><?php } } ?> 
 </channel> 
 </rss>
