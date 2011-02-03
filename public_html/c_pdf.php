@@ -19,7 +19,7 @@
 </head>
 <body>
   <?php include_once("analytics.php") ?>
-  <a href="c_pdf_rss.php">Feed</a>
+  <a href="c_pdf_rss.php">rss</a>
   <table>
     <tr width="100%">
     <?php $columns = 1; $tr = false;
@@ -38,15 +38,15 @@
         $matched = preg_match($pattern, array_pop($file_array), $matches);
         if ($matched) {
           $columns++;
-     ?>
-     <td><a href="pdf/<?= $matches[1] ?>"
-     onClick="javascript:_gaq.push(['_trackPageview', 'pdf/<?= $matches[1] ?>']);">
-      <img src="pdf/<?= $matches[0] ?>" title="<?= $matches[1] ?>" width="140" height="180" style="border-style: none"/></a></td><td></td>
-     <?php
+    ?>
+    <td><a href="pdf/<?= $matches[1] ?>"
+    onClick="javascript:_gaq.push(['_trackPageview', 'pdf/<?= $matches[1] ?>']);"><img src="pdf/<?= $matches[0] ?>"
+    title="<?= $matches[1] ?>" width="140" height="180" style="border-style: none"/></a></td><td></td>
+    <?php
           if ($tr) {
-     ?>
+    ?>
      </tr><tr>
-     <?php
+    <?php
             $tr = false;
           }
         }
