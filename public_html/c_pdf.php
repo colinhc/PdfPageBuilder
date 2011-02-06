@@ -3,7 +3,7 @@
   $cachetime = 60 * 30; // 1 hour
   if (file_exists($cachefile) && (time() - $cachetime < filemtime($cachefile))) {
     include($cachefile);
-    echo "<!-- Cached ".date('jS F Y H:i', filemtime($cachefile))."-->";
+    echo "<!-- Cached ".date("jS F Y H:i", filemtime($cachefile))."-->";
     exit;
   }
   ob_start();
@@ -14,7 +14,8 @@
   <?php
     $dirname = "../www/pdf";
     $pdf_dir = opendir($dirname);
-    $pattern = '/^([0-9a-zA-Z.,\-\ _]+).jpg/'
+    $pattern = "/^([0-9a-zA-Z.,\-\ _]+).jpg/";
+    $numPerRow = 6;
   ?>
 </head>
 <body>
@@ -32,7 +33,7 @@
       closedir($pdf_dir);
       $file_count = count($file_array);
       foreach ($file_array as $i) {
-        if ($columns > 1 && $columns % 5 == 0) {
+        if ($columns > 1 && $columns % $numPerRow == 0) {
           $tr = true;
         }
         $matched = preg_match($pattern, array_pop($file_array), $matches);
@@ -57,7 +58,7 @@
 </body>
 </html>
 <?php
-  $fp = fopen($cachefile, 'w');
+  $fp = fopen($cachefile, "w");
   fwrite($fp, ob_get_contents());
   fclose($fp);
   ob_end_flush();
