@@ -12,7 +12,7 @@
 <title>C pdf</title>
 <head>
   <?php
-    $dirname = "../www/pdf";
+    $dirname = "./pdf";
     $pdf_dir = opendir($dirname);
     $pattern = "/^([0-9a-zA-Z.,\-\ _]+).jpg/";
     $numPerRow = 6;
