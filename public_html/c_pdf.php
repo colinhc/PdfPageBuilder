@@ -12,7 +12,7 @@
 <title>C pdf</title>
 <head>
   <?php
-    $dirname = "./pdf";
+    $dirname = "pdf";
     $pdf_dir = opendir($dirname);
     $pattern = "/^([0-9a-zA-Z.,\-\ _]+).jpg/";
     $numPerRow = 6;
@@ -40,9 +40,10 @@
         if ($matched) {
           $columns++;
     ?>
-    <td><a href="pdf/<?= $matches[1] ?>"
-    onClick="javascript:_gaq.push(['_trackPageview', 'pdf/<?= $matches[1] ?>']);"><img src="pdf/<?= $matches[0] ?>"
-    title="<?= $matches[1] ?>" width="140" height="180" style="border-style: none"/></a></td><td></td>
+    <td><a href="<?= join("/", array($dirname, $matches[1])) ?>"
+    onClick="javascript:_gaq.push(['_trackPageview', '<?= join("/", array($dirname, $matches[1])) ?>']);">
+    <img src="<?= join("/", array($dirname, $matches[0])) ?>" title="<?= $matches[1] ?>"
+        width="140" height="180" style="border-style: none"/></a></td><td></td>
     <?php
           if ($tr) {
     ?>
