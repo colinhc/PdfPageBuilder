@@ -1,5 +1,5 @@
 <?php
-  $cachefile = "phpcache/.c_pdf.html";
+  $cachefile = "phpcache/.".basename($_SERVER['PHP_SELF']).".html";
   $cachetime = 60 * 30; // 1 hour
   if (file_exists($cachefile) && (time() - $cachetime < filemtime($cachefile))) {
     include($cachefile);
