@@ -14,12 +14,12 @@
   <?php
     $dirname = "pdf";
     $pdf_dir = opendir($dirname);
-    $pattern = "/^([0-9a-zA-Z.,\-\ _]+).jpg/";
+    $pattern = "/^([0-9a-zA-Z.,\-\ _\(\)]+).jpg/";
     $numPerRow = 6;
   ?>
 </head>
 <body>
-  <?php include_once("analytics.php") ?>
+  <?php include_once("analytics.php"); ?>
   <a href="c_pdf_rss.php">rss</a>
   <table>
     <tr width="100%">
