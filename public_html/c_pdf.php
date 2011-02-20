@@ -41,7 +41,7 @@
           $columns++;
     ?>
     <td><a href="<?= join("/", array($dirname, $matches[1])) ?>"
-    onClick="javascript:_gaq.push(['_trackPageview', '<?= join("/", array($dirname, $matches[1])) ?>']);">
+    onMouseUp="javascript:_gaq.push(['_trackPageview', '<?= join("/", array($dirname, $matches[1])) ?>']);">
     <img src="<?= join("/", array($dirname, $matches[0])) ?>" title="<?= $matches[1] ?>"
         width="140" height="180" style="border-style: none"/></a></td><td></td>
     <?php
