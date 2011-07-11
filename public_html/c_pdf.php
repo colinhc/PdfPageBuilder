@@ -11,10 +11,10 @@
 <html>
 <title>C pdf</title>
 <head>
+  <?php include_once("common.php"); ?>
   <?php
     $dirname = "pdf";
     $pdf_dir = opendir($dirname);
-    $pattern = "/^([0-9a-zA-Z'.,\-\ _\(\)]+).jpg/";
     $numPerRow = 6;
   ?>
 </head>

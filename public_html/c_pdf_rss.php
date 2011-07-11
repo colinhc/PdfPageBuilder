@@ -1,9 +1,9 @@
 <?php header('Content-Type: text/xml'); ?>
 <<??>?xml version="1.0" encoding="UTF-8"?>
+<?php include_once("common.php"); ?>
 <?php
   $dirname = "pdf";
   $pdf_dir = opendir($dirname);
-  $pattern = '/^([0-9a-zA-Z.,\-\ _]+).jpg/';
 
   $domain = "http://".getenv("HTTP_HOST");
 ?>
